@@ -1,7 +1,7 @@
 const studentsData = require("./students-data.json");
 
 let newArray = [];
-function calculateUsingCycles(array) {
+function findBestStudent(array) {
   for (let i = 0; i < array.length; i++) {
     arr = array[i];
     arr.forEach((line) => {
@@ -14,14 +14,18 @@ function calculateUsingCycles(array) {
     arr = array[i];
 
     let searchTerm = maxV;
-    let studName;
+    let newArr = [];
     for (var j = 0; j < arr.length; j++) {
       if (arr[j].score == searchTerm) {
         studName = arr[j].name;
-        console.log(`Поздравляем, ${studName}!`);
+
+        newArr.push(studName);
       }
     }
+    return newArr;
   }
+  
 }
+console.log(`Поздравляем, ${findBestStudent(studentsData)}!`);
 
-calculateUsingCycles(studentsData);
+module.exports = findBestStudent
